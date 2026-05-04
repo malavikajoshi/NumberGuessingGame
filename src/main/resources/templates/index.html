@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="game-card">
+        <h1>Number Guessing Game</h1>
+        <p class="subtitle">Can you guess the secret number?</p>
+
+        <div class="message-box" th:classappend="${status}">
+            <p th:text="${message}"></p>
+        </div>
+
+        <form action="/guess" method="post" class="guess-form">
+            <input
+                    type="number"
+                    name="userGuess"
+                    min="1"
+                    max="100"
+                    placeholder="Enter your guess"
+                    required
+            >
+            <button type="submit">Guess</button>
+        </form>
+
+        <p class="attempts">
+            Attempts: <span th:text="${attempts}">0</span>
+        </p>
+
+        <form action="/reset" method="post">
+            <button type="submit" class="reset-btn">Restart Game</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
