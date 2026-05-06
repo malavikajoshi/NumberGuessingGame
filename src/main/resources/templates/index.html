@@ -36,6 +36,25 @@
         </form>
     </div>
 </div>
+<h2>Score History</h2>
+
+<table class="history-table">
+    <tr>
+        <th>ID</th>
+        <th>Secret Number</th>
+        <th>Attempts</th>
+        <th>Result</th>
+        <th>Played At</th>
+    </tr>
+
+    <tr th:each="game : ${history}">
+        <td th:text="${game.id}"></td>
+        <td th:text="${game.secretNumber}"></td>
+        <td th:text="${game.attempts}"></td>
+        <td th:text="${game.result}"></td>
+        <td th:text="${game.playedAt}"></td>
+    </tr>
+</table>
 
 </body>
 </html>
